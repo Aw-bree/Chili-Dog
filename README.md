@@ -19,16 +19,7 @@
   * Web Audio API for sound generation, processing and control
   * Webpack to bundle various scripts into a single source
   * MongoDB & Express for handling leaderboard
-## Wireframes
-  - A play button will be available in the control panel, as well as a sound toggle.
-  - After pressing play the game starts and text appears on the screen with instruction sliding out. 
-  - A couple seconds later the first obstacles appear and slide to the left of the screen.
-  - When a player loses the character will spin and a game over message will appear.
-  - When a level is passed a hotdog stand will slide in from the left and the user will receive a chili dog.
 
-![Wireframe]()
-
-## MVPs
 - [ ]  Basic visuals and an interactive interface.
 - [ ]  Player can move avatar.
 - [ ]  Obstacles generate and move left toward the edge of the screen.
@@ -62,3 +53,19 @@
 ### Bonus features
 * Control for selecting avatar
 * Collisions play a sound
+
+## Wireframes
+  - A play button will be available in the control panel, as well as a sound toggle.
+  - After pressing play the game starts and text appears on the screen with instruction sliding out. 
+  - A couple seconds later the first obstacles appear and slide to the left of the screen.
+  - When a player loses the character will spin and a game over message will appear.
+  - When a level is passed a hotdog stand will slide in from the left and the user will receive a chili dog.
+
+In Game Play
+![](https://66.media.tumblr.com/46c63c490d38cb5625a5c2f22c12c894/tumblr_prkkksj3Id1wyb2l8o1_1280.png)
+
+Passed Level
+![](https://66.media.tumblr.com/f3e4acf312f58464e3c3d29ce423e825/tumblr_prklegJy7k1wyb2l8o1_1280.png)
+
+Game Over
+![](https://66.media.tumblr.com/878a449a1fceae8ae5e191b76ef9c982/tumblr_prknvntF8S1wyb2l8o1_1280.png)
