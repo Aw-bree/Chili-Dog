@@ -30,25 +30,28 @@
 
 ##### Day 1:
 - [ ]  Complete conception, reasearch, and project proposal.
-- [ ]  Briefly review games using canvas from the instructional curriculum.
+- [ ]  Review games using canvas from the instructional curriculum.
+- [ ]  Review adding game background music.
 - [ ]  Finish basic project skeleton and essentials.
 
 ##### Day 2:
-- [ ]  Complete basic page skeleton and functionality.
-- [ ]  Complete board design and rendering.
+- [ ]  Complete basic page skeleton and functionality. (play button, start msg, music button, controlls)
+- [ ]  Complete board design and rendering. 
 - [ ]  Complete player avatar rendering and functionality.
 
 ##### Day 4:
 - [ ]  Obstacle rendering and functionality.
+- [ ]  Implement obstacle/player collision.
 
 ##### Day 5:
-- [ ]  Implement obstacle/player collision.
 - [ ]  Finish game over condition.
-- [ ]  Leaderboard updating.
+- [ ]  Levels.
+- [ ]  Level passed condition.
 
 ##### Day 6:
 - [ ]  Add game over and passed level visuals.
 - [ ]  Finish CSS.
+- [ ]  Leaderboard updating.
 
 ### Bonus features
 * Control for selecting avatar
