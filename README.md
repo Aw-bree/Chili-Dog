@@ -7,11 +7,6 @@
   * The game is simple, yet difficult and is centered around a classic pairing, our dogs and their passion for food. 
   * In honor of the chili dog I will style the game with classic baseball throwback jerseys in mind.
   * It will feature Chunky cursive fonts and large colorful boarders.
-## Functionality and MVP Features
-  * Users can press up and down arrow keys to move along a vertical axis.
-  * Obstacles will be generated at the right of the frame and move towards the left.
-  * The user loses when an obstacle is encountered.
-  * Each level will have a speed and obstable frequencies, as well as durations.
 ## Architecture and Technologies
   * Vanilla JavaScript for game logic
   * HTML5 Canvas for rendering
@@ -19,14 +14,19 @@
   * Web Audio API for sound generation, processing and control
   * Webpack to bundle various scripts into a single source
   * MongoDB & Express for handling leaderboard
-
+## Functionality and MVP Features
+  * Users can press up and down arrow keys to move along a vertical axis.
+  * Obstacles will be generated at the right of the frame and move towards the left.
+  * The user loses when an obstacle is encountered.
+  * Each level will have a speed and obstable frequencies, as well as durations.
+## MVPS
 - [ ]  Basic visuals and an interactive interface.
 - [ ]  Player can move avatar.
 - [ ]  Obstacles generate and move left toward the edge of the screen.
 - [ ]  Obstacles cause 'Game Over' upon collision.
 - [ ]  Styling.
 
-## Implementations timeline
+## Implementation timeline
 
 ##### Day 1:
 - [ ]  Complete conception, reasearch, and project proposal.
@@ -60,6 +60,9 @@
   - A couple seconds later the first obstacles appear and slide to the left of the screen.
   - When a player loses the character will spin and a game over message will appear.
   - When a level is passed a hotdog stand will slide in from the left and the user will receive a chili dog.
+
+Play Screen
+![](https://66.media.tumblr.com/8ef1a45dd9a96f349d54d99e2371691e/tumblr_prksv5YLcW1wyb2l8o1_1280.png)
 
 In Game Play
 ![](https://66.media.tumblr.com/46c63c490d38cb5625a5c2f22c12c894/tumblr_prkkksj3Id1wyb2l8o1_1280.png)
