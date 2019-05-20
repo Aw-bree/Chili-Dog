@@ -1,0 +1,115 @@
+html, body, .main {
+  margin: 0px;
+  height: 100%;
+}
+
+.main, .player-list, .contact-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background: #6cc0DE;
+}
+
+.left-aside, .right-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 25%;
+}
+
+.left-aside {
+  justify-content: space-around;
+  height: 80%;
+}
+
+.player-wrapper,
+.controls-wrapper,
+.contact-wrapper,
+.leaderboard-wrapper,
+.commands-wrapper,
+.start-msg {
+  border: 12px solid #000;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #EB522D;
+  padding-bottom: 20px;
+}
+
+.game-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.start-msg-wrapper, .timer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  z-index: 15;
+}
+
+.timer {
+  height: 4%;
+}
+
+.start-msg {
+  width: 375px;
+  height: 236px;
+  text-align: center;
+  background: #CF67B3;
+  color: #6cc0DE;
+  font-size: 55px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.command-list,
+.leaderboard-list,
+.player-list, 
+.contact-list {
+  list-style: none;
+  padding: 0px;
+  background: #EB522D;
+}
+
+.title {
+  text-align: center;
+  font-family: Lobster;
+  font-size: 76px;
+  margin: 0px;
+  color: #CF67B3;
+  text-shadow: 3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+
+/* rounded edges for cavas */
+.game {
+  border-radius: 20px;
+  border: 12px solid #000;
+  overflow: hidden;
+  height: 640px;
+  width: 480px;
+  z-index: 10;
+}
+
+/* shame */
+
+#chili-dog-game {
+  z-index: 0;
+  position: absolute;
+  top: 12px;
+}
+
+#player {
+  z-index: 1;
+  position: absolute;
+  top: 12px;
+}
+
