@@ -19,7 +19,11 @@ html, body, .main {
 
 .left-aside {
   justify-content: space-around;
-  height: 80%;
+  height: 100%;
+}
+
+.right-aside {
+  margin-top: 200px;
 }
 
 .player-wrapper,
@@ -74,6 +78,7 @@ html, body, .main {
   list-style: none;
   padding: 0px;
   background: #EB522D;
+  margin: 0px;
 }
 
 .title {
@@ -87,6 +92,30 @@ html, body, .main {
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
+}
+
+#audio-button {
+  border: none;
+  background-color: #EB522D;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.audio-button-text {
+  margin-left: 15px;
+  font-size: 48px;
+}
+
+.contact-item {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+.command-item {
+  list-style: none;
+  font-size: 48px;
+
 }
 
 /* rounded edges for cavas */

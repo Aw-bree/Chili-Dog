@@ -1,3 +1,4 @@
 node_modules/
+/config/keys.js
 bundle.js
 bundle.js.map

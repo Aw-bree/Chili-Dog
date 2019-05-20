@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "webpack --mode=development --watch"
+    "start": "webpack --watch"
   },
   "repository": {
     "type": "git",

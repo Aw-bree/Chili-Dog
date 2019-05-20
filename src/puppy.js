@@ -22,9 +22,9 @@ class Puppy {
   }
 
   animate(ctx) {
-    setInterval(() => { this.drawPuppy(ctx); }, 300);
+    this.puppyID = setInterval(() => { this.drawPuppy(ctx); }, 300);
   }
-
+ 
   updateFrame() {
     this.currentFrame = ++this.currentFrame % this.frameCount;
     this.srcX = this.currentFrame * this.width;
@@ -32,7 +32,7 @@ class Puppy {
   }
 
   drawPuppy(ctx) {
-    setInterval(() => { this.updateFrame(); }, 300);
+    this.updateFrame();
     ctx.clearRect(0, 0, 480, 640);
     ctx.drawImage(
       this.puppyImg,

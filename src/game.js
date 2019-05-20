@@ -25,11 +25,18 @@ class Game {
     this.restart();
   }
 
+  play() {
+    this.running = true;
+    this.animate();
+  }
+
   restart() {
+    document.getElementsByClassName("start-msg")[0].style.display = "flex";
     this.lose = false;
     this.puppy = new Puppy(this.dimensions);
     this.level = new Level(this.dimensions);
     this.animate();
+    this.puppy.animate(this.playerCtx);
   }
 
   updateScore() {
@@ -57,9 +64,9 @@ class Game {
 
     if (!this.running) {
       document.getElementsByClassName("start-msg")[0].style.display = "none";
-      setInterval(this.updateScore.bind(this), 500);
+      this.scoreID = setInterval(this.updateScore.bind(this), 500);
       this.running = true;
-      this.restart();
+      this.play();
 
       // let e = this.playButton.click();
       // this.playButtonPressed(e);
@@ -96,6 +103,64 @@ class Game {
     }
   }
 
+  // setup highscores in localstoreage
+  // credit: https://www.developerdrive.com/2013/09/html5-javascript-gem-game-with-saved-scoreboard/
+  highScores() {
+    let high_scores = document.getElementById("leaderboard");
+    if (typeof (Storage) !== "undefined") {
+      let scores = false;
+      if (localStorage["high-scores"]) {
+        high_scores.style.display = "block";
+        high_scores.innerHTML = '';
+        scores = JSON.parse(localStorage["high-scores"]);
+        scores = scores.sort((a, b) => { return parseInt(b) - parseInt(a) });
+
+        for (var i = 0; i < 10; i++) {
+          let s = scores[i];
+          let fragment = document.createElement('li');
+          fragment.setAttribute('class', 'leader');
+          fragment.innerHTML = (typeof (s) != "undefined" ? s : "");
+          high_scores.appendChild(fragment);
+        }
+      }
+    } else {
+      high_scores.style.display = "none";
+    }
+  }
+
+  updateScores() {
+    if (typeof (Storage) !== "undefined") {
+      let current = parseInt(this.score);
+      let scores = false;
+      if (localStorage["high-scores"]) {
+        scores = JSON.parse(localStorage["high-scores"]);
+        scores = scores.sort(function (a, b) { return parseInt(b) - parseInt(a) });
+
+        for (let i = 0; i < 10; i++) {
+          let s = parseInt(scores[i]);
+
+          let val = (!isNaN(s) ? s : 0);
+          if (current > val) {
+            val = current;
+            scores.splice(i, 0, parseInt(current));
+            break;
+          }
+        }
+
+        scores.length = 10;
+        localStorage["high-scores"] = JSON.stringify(scores);
+
+      } else {
+        let scores = new Array();
+        scores[0] = current;
+        localStorage["high-scores"] = JSON.stringify(scores);
+      }
+
+      this.highScores();
+    }
+  }
+
+
   gameOver() {
     return (
       this.level.collidesWith(this.puppy.bounds()) || this.puppy.outOfBounds(this.height)
@@ -104,20 +169,23 @@ class Game {
 
   animate() {
     this.level.animate(this.ctx);
-    this.puppy.animate(this.playerCtx);
 
     if (this.gameOver()) {
       this.lose = true;
       this.running = false;
       alert(this.score);
-      document.getElementsByClassName("start-msg")[0].style.display = "flex";
+      this.updateScores();
+      this.score = 0;
+      clearInterval(puppy.puppyID);
+      clearInterval(this.scoreID);
       this.restart();
     }
 
     if (this.running) {
-      requestAnimationFrame(this.animate.bind(this));
+      this.requestId = requestAnimationFrame(this.animate.bind(this));
     }
   }
+  
 }
 
 export default Game;
