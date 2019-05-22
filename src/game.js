@@ -2,7 +2,7 @@ import Level from './level';
 import Puppy from './puppy';
 
 const CONSTANTS = {
-  PUPPY_VELOCITY: -25,
+  PUPPY_VELOCITY: -50,
 };
 
 class Game {
@@ -31,6 +31,9 @@ class Game {
   }
 
   restart() {
+    debugger
+    this.score = 0;
+    this.updateScore();
     document.getElementsByClassName("start-msg")[0].style.display = "flex";
     this.lose = false;
     this.puppy = new Puppy(this.dimensions);
@@ -42,7 +45,9 @@ class Game {
   updateScore() {
     if (this.lose === false) {
       this.score += 1;
-    } 
+    } else {
+      this.score = 0;
+    }
 
     let rawScore = Number(this.score);
     let m = Math.floor(rawScore % 3600 / 60);
@@ -68,8 +73,8 @@ class Game {
       this.running = true;
       this.play();
 
-      // let e = this.playButton.click();
-      // this.playButtonPressed(e);
+      let e = this.playButton.click();
+      this.playButtonPressed(e);
     }
 
     let key = e.key || e.keycode;
@@ -175,8 +180,7 @@ class Game {
       this.running = false;
       alert(this.score);
       this.updateScores();
-      this.score = 0;
-      clearInterval(puppy.puppyID);
+      clearInterval(this.puppy.puppyID);
       clearInterval(this.scoreID);
       this.restart();
     }

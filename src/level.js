@@ -59,7 +59,8 @@ class Level {
   drawBackground(ctx) {
     ctx.fillStyle = '#DDDDDD';
     ctx.fillRect(0, 0, this.dimensions.width, this.dimensions.height)
-
+  
+    // horizontal sidewalk lines
     for(let i =1; i < 4; i+=1.3) {
       ctx.fillStyle = "black",
       ctx.lineWidth = 2.0,
@@ -70,6 +71,7 @@ class Level {
     }
   }
 
+  // vertical sidewalk lines
   sidewalkLine(x) {
     return {
       left: x
@@ -93,7 +95,7 @@ class Level {
       ctx.fillStyle = "Black";
 
       ctx.lineWidth = 2.0,
-        ctx.beginPath();
+      ctx.beginPath();
       ctx.moveTo(line.left, 0);
       ctx.lineTo(line.left, 640);
       ctx.stroke();
@@ -122,6 +124,7 @@ class Level {
 
   // ------------------------------ Level ---------------------------------//
 
+  // Obstacles v.2 pass in not just x but a random obstacle. Set the attirbutes to be that verions
   randomObstacle(x) {
     const heightRange = this.dimensions.height - (2 * CONSTANTS.EDGE_BUFFER) - CONSTANTS.GAP_HEIGHT;
     const gapTop = (Math.random() * heightRange) + CONSTANTS.EDGE_BUFFER;
@@ -162,7 +165,6 @@ class Level {
 
   drawObstacles(ctx) {
     this.eachObstacle(obstacle => {
-      ctx.fillStyle = "green";
 
       // (x, y, w, h)
       ctx.drawImage(
@@ -191,20 +193,18 @@ class Level {
   collidesWith(puppy) {
     let collision = false 
 
-    
+    // check circle obstacle to puppy
     const _overlap = (obstacle, puppy) => {
-
-      // check circle obstacle to puppy
-
+      
       // For circle obstacles find the middle point of the obstacle
       let centerX = ((obstacle.left + obstacle.right) / 2);
       let centerY = ((obstacle.top + obstacle.bottom) / 2);
       let circleRadius = obstacle.right - centerX;
 
-      // find closest point in the rectangle to the circle
+      // find closest point on the puppy rectangle to the circle obstacle
       let closestX;
       let closestY;
-      // check if the center of the circle is to the left of the rectangle etc.
+      // check if the center of the circle obstacle is to the left of the puppy rectangle etc.
       if (puppy.left > centerX) {
         closestX = puppy.left;
       } else if (puppy.right < centerX) {
@@ -212,7 +212,7 @@ class Level {
       } else {
         closestX = centerX;
       }
-      // check if the center of the circle is to the top of the rectangle etc.
+      // check if the center of the circle obstacle is to the top of the puppy rectangle etc.
       if (puppy.top > centerY) {
         closestY = puppy.top;
       } else if (puppy.bottom < centerY) {
@@ -221,7 +221,7 @@ class Level {
         closestY = centerY;
       }
 
-      // check if the closest point on the obstacle is inside the circle  
+      // check if the closest point on the puppy rectangle is inside the circle obstacle
       let dist = Math.hypot(closestX - centerX, closestY - centerY);
       
       if ( dist < circleRadius) {
@@ -229,6 +229,7 @@ class Level {
       }
 
       return false;
+     
       // check rectangle obstacle to puppy
       // if ((obstacle.left + 10) > puppy.right || (obstacle.right - 10) < puppy.left ||
       //     (obstacle.top + 10) > puppy.bottom || (obstacle.bottom - 10) < puppy.top)
@@ -239,7 +240,7 @@ class Level {
       // return true;
     };
 
-
+    // Obstacles 2.0 check if obstacle is a circle or a rectangle, call appropriate overlap function
     this.eachObstacle(obstacle => {
       if (
         _overlap(obstacle.topObstacle, puppy) || 
