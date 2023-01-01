@@ -18,7 +18,7 @@
   "homepage": "https://github.com/Aw-bree/Chili-Dog#readme",
   "dependencies": {
     "lodash": "^4.17.11",
-    "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }
